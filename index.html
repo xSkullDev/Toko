@@ -1,12 +1,82 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Toko - React Login</title>
-    </head>
-    <body>
-        <div id="root"></div>
-        <script type="module" src="/src/main.jsx"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Minimal embedded styles for layout (primary styles can go into style.css) */
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%)}
+        .card{background:#fff;border-radius:10px;padding:32px;width:100%;max-width:420px;box-shadow:0 10px 25px rgba(0,0,0,.2)}
+        h1{font-size:26px;color:#333;margin-bottom:6px}
+        p.lead{color:#666;margin-bottom:18px}
+        .tabs{display:flex;gap:10px;margin-bottom:18px}
+        .tab{flex:1;padding:8px 12px;border-radius:8px;text-align:center;cursor:pointer;background:#f5f6fb;color:#333;font-weight:600}
+        .tab.active{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff}
+        form{margin-top:6px}
+        .form-group{margin-bottom:14px}
+        label{display:block;margin-bottom:6px;color:#333;font-size:14px}
+        input[type=email],input[type=password]{width:100%;padding:10px 12px;border-radius:8px;border:1px solid #ddd;font-size:14px}
+        .row{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+        .btn{width:100%;padding:12px;border-radius:8px;border:0;color:#fff;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);font-weight:700;cursor:pointer}
+        .link{color:#667eea;text-decoration:none}
+        .muted{color:#777;font-size:13px;text-align:center;margin-top:12px}
+        .hidden{display:none}
+        .message{padding:8px 10px;border-radius:6px;margin-bottom:12px;font-size:14px}
+        .msg-error{background:#ffe6e6;color:#8d1f1f}
+        .msg-success{background:#e8fff0;color:#0b6b3a}
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div style="text-align:center;margin-bottom:6px">
+            <h1>Toko</h1>
+            <p class="lead">Masuk atau daftar untuk melanjutkan</p>
+        </div>
+
+        <div class="tabs">
+            <div id="tabLogin" class="tab active">Login</div>
+            <div id="tabSignup" class="tab">Daftar</div>
+        </div>
+
+        <div id="message" class="message hidden"></div>
+
+        <!-- Login Form -->
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input id="loginEmail" type="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input id="loginPassword" type="password" placeholder="Password" required>
+            </div>
+            <div class="row" style="margin-bottom:18px">
+                <label style="display:flex;align-items:center;gap:6px;font-size:13px"><input id="remember" type="checkbox"> Ingat saya</label>
+                <a class="link" href="#" id="forgot">Lupa password?</a>
+            </div>
+            <button class="btn" type="submit">Masuk</button>
+        </form>
+
+        <!-- Signup Form -->
+        <form id="signupForm" class="hidden">
+            <div class="form-group">
+                <label for="signupEmail">Email</label>
+                <input id="signupEmail" type="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input id="signupPassword" type="password" placeholder="Minimal 6 karakter" minlength="6" required>
+            </div>
+            <button class="btn" type="submit">Daftar</button>
+            <div class="muted">Dengan mendaftar, akun akan dibuat di Supabase Auth.</div>
+        </form>
+
+        <div class="muted" style="margin-top:14px">Pastikan Anda mengisi `SUPABASE_ANON_KEY` di file `script.js` sebelum mencoba fitur ini.</div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
 </html>
