@@ -46,8 +46,8 @@
         <!-- Login Form -->
         <form id="loginForm">
             <div class="form-group">
-                <label for="loginEmail">Email</label>
-                <input id="loginEmail" type="email" placeholder="you@example.com" required>
+                <label for="loginStore">Nama Toko</label>
+                <input id="loginStore" type="text" placeholder="Nama toko Anda (unik)" required>
             </div>
             <div class="form-group">
                 <label for="loginPassword">Password</label>
@@ -63,8 +63,8 @@
         <!-- Signup Form -->
         <form id="signupForm" class="hidden">
             <div class="form-group">
-                <label for="signupEmail">Email</label>
-                <input id="signupEmail" type="email" placeholder="you@example.com" required>
+                <label for="signupStore">Nama Toko (unik)</label>
+                <input id="signupStore" type="text" placeholder="Contoh: TokoBudi" required>
             </div>
             <div class="form-group">
                 <label for="signupPassword">Password</label>
@@ -74,7 +74,7 @@
             <div class="muted">Dengan mendaftar, akun akan dibuat di Supabase Auth.</div>
         </form>
 
-        <div class="muted" style="margin-top:14px">Pastikan Anda mengisi `SUPABASE_ANON_KEY` di file `script.js` sebelum mencoba fitur ini.</div>
+        <div class="muted" style="margin-top:14px">Pastikan Anda mengisi `SUPABASE_ANON_KEY` di file `script.js` sebelum mencoba fitur ini. Nama toko harus unik — jika sudah dipakai, pilih nama lain.</div>
     </div>
 
     <script type="module" src="script.js"></script>

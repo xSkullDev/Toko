@@ -43,12 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	loginForm.addEventListener('submit', async (e) => {
 		e.preventDefault()
-		const email = document.getElementById('loginEmail').value.trim()
+		const store = document.getElementById('loginStore').value.trim()
 		const password = document.getElementById('loginPassword').value
-		if(!email || !password){ showMessage('Mohon isi email dan password', 'error'); return }
+		if(!store || !password){ showMessage('Mohon isi nama toko dan password', 'error'); return }
+		const slug = slugify(store)
+		const email = `${slug}@toko.local`
 		try{
 			const { data, error } = await supabase.auth.signInWithPassword({ email, password })
-			if(error){ showMessage(error.message || 'Gagal login', 'error'); return }
+			if(error){ showMessage(error.message || 'Gagal login — cek nama toko dan password', 'error'); return }
 			// sukses -> redirect ke dashboard
 			window.location.href = 'dashboard.html'
 		}catch(err){ showMessage(err.message || String(err), 'error') }
@@ -56,19 +58,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	signupForm.addEventListener('submit', async (e) => {
 		e.preventDefault()
-		const email = document.getElementById('signupEmail').value.trim()
+		const store = document.getElementById('signupStore').value.trim()
 		const password = document.getElementById('signupPassword').value
-		if(!email || !password){ showMessage('Mohon isi email dan password', 'error'); return }
+		if(!store || !password){ showMessage('Mohon isi nama toko dan password', 'error'); return }
+		const slug = slugify(store)
+		const email = `${slug}@toko.local`
 		try{
-			const { data, error } = await supabase.auth.signUp({ email, password })
-			if(error){ showMessage(error.message || 'Gagal daftar', 'error'); return }
+			// signUp with pseudo-email derived from store name and include store_name in user metadata
+			const { data, error } = await supabase.auth.signUp({ email, password, options: { data: { store_name: store } } })
+			if(error){ showMessage(error.message || 'Gagal daftar — mungkin nama toko sudah dipakai', 'error'); return }
 			// Jika signUp berhasil, coba signIn agar langsung diarahkan ke dashboard
 			const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({ email, password })
 			if(signInError){
-				showMessage('Akun dibuat. Cek email untuk verifikasi jika diperlukan.', 'success')
+				showMessage('Akun dibuat. Jika verifikasi email diaktifkan, cek email (pseudo-email digunakan).', 'success')
 				return
 			}
 			window.location.href = 'dashboard.html'
 		}catch(err){ showMessage(err.message || String(err), 'error') }
 	})
+
+	// helper: create simple slug from store name
+	function slugify(text){
+		return text.toString().toLowerCase()
+			.normalize('NFKD')
+			.replace(/[^a-z0-9\s-]/g, '')
+			.trim()
+			.replace(/\s+/g, '-')
+			.replace(/-+/g, '-')
+	}
 })
