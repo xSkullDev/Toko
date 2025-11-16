@@ -1,0 +1,16 @@
+/* Simple styles for the login page */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg,#667eea 0%,#764ba2 100%); min-height:100vh; display:flex; align-items:center; justify-content:center; }
+.container { width:100%; max-width:420px; padding:20px; }
+.login-card { background:#fff; border-radius:10px; box-shadow:0 10px 25px rgba(0,0,0,0.15); padding:36px; }
+.login-header { text-align:center; margin-bottom:18px }
+.login-header h1 { color:#333; font-size:26px }
+.login-header p { color:#666; font-size:13px }
+.form-group { margin-bottom:14px }
+label { display:block; color:#333; margin-bottom:6px; font-size:13px }
+input[type="email"], input[type="password"] { width:100%; padding:10px 12px; border:1px solid #e3e3e3; border-radius:6px; font-size:14px }
+.form-options { display:flex; justify-content:space-between; align-items:center; margin-top:8px }
+.remember-me { display:flex; align-items:center; gap:8px; font-size:13px }
+.linkish { background:none; border:none; color:#667eea; cursor:pointer; padding:0; font-size:13px }
+.login-btn { width:100%; padding:10px 12px; background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff; border:none; border-radius:6px; font-size:15px; cursor:pointer; margin-top:16px }
+.signup-link { text-align:center; margin-top:12px; color:#666; font-size:13px }
