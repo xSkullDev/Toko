@@ -1,0 +1,3 @@
+Data Database Supabase.
+- Project name  : Toko
+- Password      : h+a8ZinR$bv_9Yk
