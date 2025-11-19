@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko - Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-title">Toko</div>
+            <div class="navbar-user">
+                <div class="user-info">
+                    <p class="username"><%= user.storeName %></p>
+                    <p class="user-role">Toko Owner</p>
+                </div>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="dashboard-container">
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+            <h2>Selamat datang di Dashboard 👋</h2>
+            <p>Halo <strong><%= user.storeName %></strong>, kelola bisnis Anda dari sini.</p>
+        </div>
+
+        <!-- Menu Cards -->
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Dashboard</h3>
+                <p>Lihat ringkasan bisnis dan statistik penjualan</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📦</div>
+                <h3>Produk</h3>
+                <p>Kelola produk yang dijual di toko Anda</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💰</div>
+                <h3>Penjualan</h3>
+                <p>Pantau laporan penjualan harian dan bulanan</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">👥</div>
+                <h3>Pelanggan</h3>
+                <p>Kelola data pelanggan dan riwayat pembelian</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h3>Pengaturan</h3>
+                <p>Atur preferensi dan konfigurasi toko Anda</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📝</div>
+                <h3>Laporan</h3>
+                <p>Buat dan ekspor laporan bisnis Anda</p>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <h3>Statistik Hari Ini</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-label">Total Penjualan</span>
+                    <span class="stat-value">Rp 1.250.000</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Jumlah Transaksi</span>
+                    <span class="stat-value">42</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Pelanggan Baru</span>
+                    <span class="stat-value">12</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Produk Terjual</span>
+                    <span class="stat-value">89 unit</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>

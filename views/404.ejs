@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .error-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .error-content h1 {
+            font-size: 80px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .error-content p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .error-content a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        .error-content a:hover {
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-content">
+            <h1>404</h1>
+            <p>Halaman tidak ditemukan</p>
+            <p><small><%= url %></small></p>
+            <a href="/">Kembali ke Login</a>
+        </div>
+    </div>
+</body>
+</html>
